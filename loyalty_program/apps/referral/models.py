@@ -11,7 +11,7 @@ class Client(models.Model):
     email = models.EmailField(max_length=255, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    points = models.PositiveIntegerField(default=0)
+    points = models.PositiveIntegerField(default=0, editable=False)
 
     def __str__(self):
         details = f'Cliente: {self.name} | cpf: {self.cpf}'
