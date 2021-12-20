@@ -5,8 +5,7 @@ from localflavor.br.models import BRCPFField
 
 class Client(models.Model):
     name = models.CharField(max_length=255, blank=False, verbose_name='Nome')
-    cpf = BRCPFField('CPF ', blank=False, primary_key=True,
-                     help_text='Formato: 00011122233')
+    cpf = BRCPFField('CPF ', blank=False, primary_key=True, help_text='Formato: 00011122233')
     phone = models.CharField(max_length=11, blank=False,
                              help_text='Formato DDD + Número', verbose_name='Telefone')
     email = models.EmailField(max_length=255, blank=False)
