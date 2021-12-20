@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-# from loyalty_program.apps.referral.apps import ReferralConfig
+from loyalty_program.apps.referral.apps import ReferralConfig
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'localflavor',
-    'loyalty_program.apps',
+    ReferralConfig.name,
 ]
 
 MIDDLEWARE = [
