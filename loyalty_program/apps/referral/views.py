@@ -195,3 +195,14 @@ class GetReferralView(generics.RetrieveAPIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response(["No active referral towards this person."], status=status.HTTP_404_NOT_FOUND)
+
+
+class CreateReferralView(generics.CreateAPIView):
+    """
+    Docstring goes here
+    """
+
+    queryset = Referral.objects.all()
+    serializer_class = ReferralSerializer
+
+    
