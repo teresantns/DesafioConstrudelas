@@ -19,9 +19,9 @@ class Client(models.Model):
 
 
 class Referral(models.Model):
-    source_cpf = BRCPFField('CPF do usuário de origem',
+    source_cpf = BRCPFField('CPF do usuário indicador',
                             blank=False, unique=False)
-    target_cpf = BRCPFField('CPF do usuário de destino',
+    target_cpf = BRCPFField('CPF da pessoa indicada',
                             blank=False, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
