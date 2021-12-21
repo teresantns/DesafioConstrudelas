@@ -124,6 +124,28 @@ class GetUserReferralsView(generics.RetrieveAPIView):
     lookup_field = 'source_cpf'
 
     def get(self, request, cpf):
+        """
+        Returns a list of referrals performed by specific user.
+
+        It expects:
+        - GET as http method;
+        - The CPF specified on the url;
+
+        It returns:
+        - HTTP status = 200;
+        - A JSON like this:
+            [
+            {
+                "id": 1,
+                "source_cpf": "12631049675",
+                "target_cpf": "51805510649",
+                "created_at": "2021-12-21T15:22:23.097487-03:00",
+                "updated_at": "2021-12-21T15:22:23.097652-03:00",
+                "status": false
+            },
+            ...
+        ]
+        """
 
         is_client_on_db = Client.objects.filter(cpf=cpf).exists()
         if is_client_on_db:
