@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from loyalty_program.apps.referral.views import UpdateUserView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user/<str:cpf>/', UpdateUserView.as_view()),
 ]
