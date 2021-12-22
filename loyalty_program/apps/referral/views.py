@@ -289,8 +289,8 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
         """
 
         if Referral.objects.filter(target_cpf=cpf).exists():
-            referrals = Referral.objects.filter(target_cpf=cpf)
-            serializer = ReferralSerializer(referrals, many=True)
+            referrals = Referral.objects.get(target_cpf=cpf)
+            serializer = ReferralSerializer(referrals)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response({"error": "No active referral registered for this CPF"}, status=status.HTTP_404_NOT_FOUND)
@@ -303,9 +303,10 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
         serializer = ReferralSerializer(referral, data=request.data, partial=True)
 
         if serializer.is_valid():
-            # if request.data[status] == True:
-            #     pass  # add conditions for cpf fields -- or make them by default non editable or read only??
+            if request.data['target_cpf'] == cpf and request.data['source_cpf'] == referral.source_cpf:
+                serializer.save()
+                return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "cannot change users CPF"}, status=status.HTTP_400_BAD_REQUEST)
 
-            serializer.save()
-            return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
