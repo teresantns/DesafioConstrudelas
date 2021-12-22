@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from loyalty_program.apps.referral.views import GetReferralView, GetUserReferralsView, UpdateUserView, GetReferralsView
+from loyalty_program.apps.referral.views import (CreateReferralView, 
+     GetReferralView, GetUserReferralsView, UpdateUserView, GetReferralsView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('all-referrals/', GetReferralsView.as_view()),
     path('all-referrals/<str:cpf>/', GetUserReferralsView.as_view()),
     path('referral/<str:cpf>/', GetReferralView.as_view()),
+    path('create-referral/', CreateReferralView.as_view()),
 ]

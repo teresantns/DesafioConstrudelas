@@ -36,10 +36,10 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - HTTP status = 200;
         - A JSON like this:
             {
-                "cpf": "12631049675",
-                "name": "Teresa Seabra Antunes",
-                "phone": "31992818778",
-                "email": "tseabra.antunes@gmail.com",
+                "cpf": "a valid cpf",
+                "name": "some name",
+                "phone": "some telephone number",
+                "email": "some valid email",
                 "created_at": "2021-12-20T20:10:34.538825-03:00",
                 "updated_at": "2021-12-21T12:01:53.208761-03:00",
                 "points": 0
@@ -58,10 +58,10 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - The CPF specified on the url;
         - A JSON like this:
             {
-                "cpf": "12631049675",
-                "name": "Teresa Seabra Antunes",
-                "phone": "31992818778",
-                "email": "tseabra.antunes@gmail.com"
+                "cpf": "a valid cpf",
+                "name": "some name",
+                "phone": "some telephone number",
+                "email": "some valid email"
             }
 
         It returns:
@@ -69,10 +69,10 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - A JSON like this:
             {
                 "Updated user:": {
-                    "cpf": "12631049675",
-                    "name": "Teresa Seabra Antunes",
-                    "phone": "31992818778",
-                    "email": "tseabra.antunes@gmail.com",
+                    "cpf": "a valid cpf",
+                    "name": "some name",
+                    "phone": "some telephone number",
+                    "email": "some valid email",
                     "created_at": "2021-12-20T20:10:34.538825-03:00",
                     "updated_at": "2021-12-21T13:57:52.904942-03:00",
                     "points": 0
@@ -101,8 +101,8 @@ class GetReferralsView(generics.ListAPIView):
         [
             {
             "id": 1,
-            "source_cpf": "12631049675",
-            "target_cpf": "51805510649",
+            "source_cpf": "a valid cpf",
+            "target_cpf": "another valid cpf",
             "created_at": "2021-12-21T15:22:23.097487-03:00",
             "updated_at": "2021-12-21T15:22:23.097652-03:00",
             "status": false
@@ -137,8 +137,8 @@ class GetUserReferralsView(generics.RetrieveAPIView):
             [
             {
                 "id": 1,
-                "source_cpf": "12631049675",
-                "target_cpf": "51805510649",
+                "source_cpf": "cpf on url",
+                "target_cpf": "another valid cpf",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
                 "updated_at": "2021-12-21T15:22:23.097652-03:00",
                 "status": false
@@ -154,9 +154,9 @@ class GetUserReferralsView(generics.RetrieveAPIView):
                 serializer = ReferralSerializer(referrals, many=True)
                 return Response(serializer.data, status=status.HTTP_200_OK)
             else:
-                return Response(["User doesn't have registered referrals"], status=status.HTTP_404_NOT_FOUND)
+                return Response(["error: User doesn't have registered referrals"], status=status.HTTP_404_NOT_FOUND)
         else:
-            return Response(["User not on database"], status=status.HTTP_404_NOT_FOUND)
+            return Response(["error: User not on database"], status=status.HTTP_404_NOT_FOUND)
 
 
 class GetReferralView(generics.RetrieveAPIView):
@@ -181,12 +181,12 @@ class GetReferralView(generics.RetrieveAPIView):
         - A JSON like this:
             {
                 "id": 1,
-                "source_cpf": "12631049675",
-                "target_cpf": "51805510649",
+                "source_cpf": "a valid cpf",
+                "target_cpf": "cpf on url",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
                 "updated_at": "2021-12-21T15:22:23.097652-03:00",
                 "status": false
-            },
+            }
         """
 
         if Referral.objects.filter(target_cpf=cpf).exists():
@@ -194,4 +194,79 @@ class GetReferralView(generics.RetrieveAPIView):
             serializer = ReferralSerializer(referrals, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(["No active referral towards this person."], status=status.HTTP_404_NOT_FOUND)
+            return Response(["error: No active referral towards this person."], status=status.HTTP_404_NOT_FOUND)
+
+
+class CreateReferralView(generics.ListCreateAPIView):
+    """
+    Creates a Referral
+    """
+
+    queryset = Referral.objects.all()
+    serializer_class = ReferralSerializer
+
+    def get(self, request):
+        """
+        It expects:
+        - GET as http method;
+
+        It returns:
+        - HTTP status = 200;
+        - A message like this:
+            [
+                "waiting on referral creation"
+            ]
+        """
+        return Response(["waiting on referral creation"], status=status.HTTP_200_OK)
+
+    def post(self, request):
+        """
+        Creates a referral.
+
+        It expects:
+        - POST as http method;
+        - A JSON like this:
+        {
+            "source_cpf": "a valid cpf",
+            "target_cpf": "another valid cpf",
+            "status": false
+        }
+
+        It returns:
+        - HTTP status = 201;
+        - A JSON like this:
+            {
+                "id": 1,
+                "source_cpf": "a valid cpf",
+                "target_cpf": "another valid cpf",
+                "created_at": "2021-12-21T15:22:23.097487-03:00",
+                "updated_at": "2021-12-21T15:22:23.097652-03:00",
+                "status": false
+            }
+        """
+
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            if Client.objects.filter(cpf=request.data['source_cpf']).exists():
+                if request.data['source_cpf'] == request.data['target_cpf']:
+                    return Response(["error: User cannot refer themselves"], status=status.HTTP_400_BAD_REQUEST)
+
+                else:
+                    if Client.objects.filter(cpf=request.data['target_cpf']).exists():
+                        return Response(["error: Referred person is already registered"],
+                                        status=status.HTTP_400_BAD_REQUEST)
+                        
+                    else:
+                        serializer.save()
+                        return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
+                        
+            else:
+                return Response(["error: User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
+
+        elif Referral.objects.filter(target_cpf=request.data['target_cpf']).exists() and serializer.is_valid():
+            return Response("error: This person was already referred.",
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
