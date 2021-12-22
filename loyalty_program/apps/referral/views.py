@@ -186,7 +186,7 @@ class GetReferralView(generics.RetrieveAPIView):
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
                 "updated_at": "2021-12-21T15:22:23.097652-03:00",
                 "status": false
-            },
+            }
         """
 
         if Referral.objects.filter(target_cpf=cpf).exists():
@@ -199,7 +199,7 @@ class GetReferralView(generics.RetrieveAPIView):
 
 class CreateReferralView(generics.ListCreateAPIView):
     """
-    Docstring goes here
+    Creates a Referral
     """
 
     queryset = Referral.objects.all()
@@ -207,13 +207,42 @@ class CreateReferralView(generics.ListCreateAPIView):
 
     def get(self, request):
         """
-        docstring here
+        It expects:
+        - GET as http method;
+
+        It returns:
+        - HTTP status = 200;
+        - A message like this:
+            [
+                "waiting on referral creation"
+            ]
         """
         return Response(["waiting on referral creation"], status=status.HTTP_200_OK)
 
     def post(self, request):
         """
-        docstring here
+        Creates a referral.
+
+        It expects:
+        - POST as http method;
+        - A JSON like this:
+        {
+            "source_cpf": "12631049675",
+            "target_cpf": "51805510649",
+            "status": false
+        }
+
+        It returns:
+        - HTTP status = 201;
+        - A JSON like this:
+            {
+                "id": 1,
+                "source_cpf": "12631049675",
+                "target_cpf": "51805510649",
+                "created_at": "2021-12-21T15:22:23.097487-03:00",
+                "updated_at": "2021-12-21T15:22:23.097652-03:00",
+                "status": false
+            }
         """
 
         serializer = self.serializer_class(data=request.data)
