@@ -36,10 +36,10 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - HTTP status = 200;
         - A JSON like this:
             {
-                "cpf": "12631049675",
-                "name": "Teresa Seabra Antunes",
-                "phone": "31992818778",
-                "email": "tseabra.antunes@gmail.com",
+                "cpf": "a valid cpf",
+                "name": "some name",
+                "phone": "some telephone number",
+                "email": "some valid email",
                 "created_at": "2021-12-20T20:10:34.538825-03:00",
                 "updated_at": "2021-12-21T12:01:53.208761-03:00",
                 "points": 0
@@ -58,10 +58,10 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - The CPF specified on the url;
         - A JSON like this:
             {
-                "cpf": "12631049675",
-                "name": "Teresa Seabra Antunes",
-                "phone": "31992818778",
-                "email": "tseabra.antunes@gmail.com"
+                "cpf": "a valid cpf",
+                "name": "some name",
+                "phone": "some telephone number",
+                "email": "some valid email"
             }
 
         It returns:
@@ -69,10 +69,10 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - A JSON like this:
             {
                 "Updated user:": {
-                    "cpf": "12631049675",
-                    "name": "Teresa Seabra Antunes",
-                    "phone": "31992818778",
-                    "email": "tseabra.antunes@gmail.com",
+                    "cpf": "a valid cpf",
+                    "name": "some name",
+                    "phone": "some telephone number",
+                    "email": "some valid email",
                     "created_at": "2021-12-20T20:10:34.538825-03:00",
                     "updated_at": "2021-12-21T13:57:52.904942-03:00",
                     "points": 0
@@ -101,8 +101,8 @@ class GetReferralsView(generics.ListAPIView):
         [
             {
             "id": 1,
-            "source_cpf": "12631049675",
-            "target_cpf": "51805510649",
+            "source_cpf": "a valid cpf",
+            "target_cpf": "another valid cpf",
             "created_at": "2021-12-21T15:22:23.097487-03:00",
             "updated_at": "2021-12-21T15:22:23.097652-03:00",
             "status": false
@@ -137,8 +137,8 @@ class GetUserReferralsView(generics.RetrieveAPIView):
             [
             {
                 "id": 1,
-                "source_cpf": "12631049675",
-                "target_cpf": "51805510649",
+                "source_cpf": "cpf on url",
+                "target_cpf": "another valid cpf",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
                 "updated_at": "2021-12-21T15:22:23.097652-03:00",
                 "status": false
@@ -181,8 +181,8 @@ class GetReferralView(generics.RetrieveAPIView):
         - A JSON like this:
             {
                 "id": 1,
-                "source_cpf": "12631049675",
-                "target_cpf": "51805510649",
+                "source_cpf": "a valid cpf",
+                "target_cpf": "cpf on url",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
                 "updated_at": "2021-12-21T15:22:23.097652-03:00",
                 "status": false
@@ -227,8 +227,8 @@ class CreateReferralView(generics.ListCreateAPIView):
         - POST as http method;
         - A JSON like this:
         {
-            "source_cpf": "12631049675",
-            "target_cpf": "51805510649",
+            "source_cpf": "a valid cpf",
+            "target_cpf": "another valid cpf",
             "status": false
         }
 
@@ -237,8 +237,8 @@ class CreateReferralView(generics.ListCreateAPIView):
         - A JSON like this:
             {
                 "id": 1,
-                "source_cpf": "12631049675",
-                "target_cpf": "51805510649",
+                "source_cpf": "a valid cpf",
+                "target_cpf": "another valid cpf",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
                 "updated_at": "2021-12-21T15:22:23.097652-03:00",
                 "status": false
