@@ -197,7 +197,7 @@ class GetReferralView(generics.RetrieveAPIView):
             return Response(["No active referral towards this person."], status=status.HTTP_404_NOT_FOUND)
 
 
-class CreateReferralView(generics.CreateAPIView):
+class CreateReferralView(generics.ListCreateAPIView):
     """
     Docstring goes here
     """
@@ -205,4 +205,21 @@ class CreateReferralView(generics.CreateAPIView):
     queryset = Referral.objects.all()
     serializer_class = ReferralSerializer
 
-    
+    def get(self, request):
+        """
+        docstring here
+        """
+        return Response(["waiting on referral creation"], status=status.HTTP_200_OK)
+
+    def post(self, request):
+        """
+        docstring here
+        """
+
+        serializer = self.serializer_class(data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
+        else: 
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
