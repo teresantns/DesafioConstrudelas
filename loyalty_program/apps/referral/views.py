@@ -81,8 +81,11 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         user = Client.objects.get(cpf=cpf)
         serializer = ClientSerializer(user, data=request.data, partial=True)
         if serializer.is_valid():
-            serializer.save()
-            return Response({'Updated user:': serializer.data}, status=status.HTTP_200_OK)
+            if cpf == request.data['cpf']:
+                serializer.save()
+                return Response({'Updated user:': serializer.data}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "cannot change user CPF"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -296,8 +299,8 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
         """
         docstring goes here
         """
-        user = Referral.objects.get(target_cpf=cpf)
-        serializer = ReferralSerializer(user, data=request.data, partial=True)
+        referral = Referral.objects.get(target_cpf=cpf)
+        serializer = ReferralSerializer(referral, data=request.data, partial=True)
 
         if serializer.is_valid():
             # if request.data[status] == True:
