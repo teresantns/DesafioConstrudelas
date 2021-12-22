@@ -219,7 +219,10 @@ class CreateReferralView(generics.ListCreateAPIView):
         serializer = self.serializer_class(data=request.data)
         
         if serializer.is_valid():
-            serializer.save()
-            return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
+            if Client.objects.filter(cpf=request.data['source_cpf']):
+                serializer.save()
+                return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
+            else:
+                return Response(["User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
         else: 
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
