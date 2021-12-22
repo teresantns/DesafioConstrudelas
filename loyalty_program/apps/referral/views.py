@@ -154,9 +154,9 @@ class GetUserReferralsView(generics.RetrieveAPIView):
                 serializer = ReferralSerializer(referrals, many=True)
                 return Response(serializer.data, status=status.HTTP_200_OK)
             else:
-                return Response(["User doesn't have registered referrals"], status=status.HTTP_404_NOT_FOUND)
+                return Response(["error: User doesn't have registered referrals"], status=status.HTTP_404_NOT_FOUND)
         else:
-            return Response(["User not on database"], status=status.HTTP_404_NOT_FOUND)
+            return Response(["error: User not on database"], status=status.HTTP_404_NOT_FOUND)
 
 
 class GetReferralView(generics.RetrieveAPIView):
@@ -194,7 +194,7 @@ class GetReferralView(generics.RetrieveAPIView):
             serializer = ReferralSerializer(referrals, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
-            return Response(["No active referral towards this person."], status=status.HTTP_404_NOT_FOUND)
+            return Response(["error: No active referral towards this person."], status=status.HTTP_404_NOT_FOUND)
 
 
 class CreateReferralView(generics.ListCreateAPIView):
@@ -217,12 +217,18 @@ class CreateReferralView(generics.ListCreateAPIView):
         """
 
         serializer = self.serializer_class(data=request.data)
-        
+
         if serializer.is_valid():
-            if Client.objects.filter(cpf=request.data['source_cpf']):
+            if Client.objects.filter(cpf=request.data['source_cpf']).exists():
+
                 serializer.save()
                 return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
             else:
-                return Response(["User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
-        else: 
+                return Response(["error: User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
+
+        elif Referral.objects.filter(target_cpf=request.data['target_cpf']).exists() and serializer.is_valid():
+            return Response("error: This person was already referred.",
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
