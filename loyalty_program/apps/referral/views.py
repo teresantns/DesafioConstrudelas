@@ -9,7 +9,6 @@ Postman documentation, linked in the repository README.md file.
 from django.shortcuts import get_object_or_404
 from rest_framework import status, generics
 from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from .models import Client, Referral
 from .serializers import ClientSerializer, ReferralSerializer
@@ -256,11 +255,11 @@ class CreateReferralView(generics.ListCreateAPIView):
                     if Client.objects.filter(cpf=request.data['target_cpf']).exists():
                         return Response(["error: Referred person is already registered"],
                                         status=status.HTTP_400_BAD_REQUEST)
-                        
+
                     else:
                         serializer.save()
                         return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
-                        
+
             else:
                 return Response(["error: User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
 
@@ -270,3 +269,32 @@ class CreateReferralView(generics.ListCreateAPIView):
 
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AcceptReferralView(generics.RetrieveUpdateAPIView):
+    """
+    Gets and updates referral, allowing its acceptance.
+    """
+
+    queryset = Referral.objects.all()
+    serializer_class = ReferralSerializer
+    lookup_field = 'target_cpf'
+
+    def get(self, request, cpf):
+        """
+        docstring here!
+        """
+        referral = get_object_or_404(Referral, target_cpf=cpf)
+        serializer = ReferralSerializer(referral)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, cpf):
+        """
+        docstring goes here
+        """
+        user = Referral.objects.get(target_cpf=cpf)
+        serializer = ReferralSerializer(user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
