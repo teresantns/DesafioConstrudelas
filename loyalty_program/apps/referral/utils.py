@@ -1,4 +1,3 @@
-from datetime import timedelta
 from .models import Referral
 from django.utils import timezone
 
