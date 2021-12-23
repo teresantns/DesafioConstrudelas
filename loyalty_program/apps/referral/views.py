@@ -7,6 +7,7 @@ Postman documentation, linked in the repository README.md file.
 """
 
 from django.shortcuts import get_object_or_404
+from django.db import transaction
 from rest_framework import status, generics
 from rest_framework.response import Response
 
@@ -300,13 +301,30 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
         docstring goes here
         """
         referral = Referral.objects.get(target_cpf=cpf)
-        serializer = ReferralSerializer(referral, data=request.data, partial=True)
+        serializer = ReferralSerializer(
+            referral, data=request.data, partial=True)
+        referrent = Client.objects.get(cpf=referral.source_cpf)
+        updated_status = request.data['status']
 
         if serializer.is_valid():
             if request.data['target_cpf'] == cpf and request.data['source_cpf'] == referral.source_cpf:
-                serializer.save()
-                return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+                if updated_status:
+                    with transaction.atomic():
+                        """
+                        Using atomic to ensure both actions will happen, or neither of them.
+                        The number of points can be changed to be consistent with the existing point system
+                        """
+                        referrent.points += 10
+                        referrent.save()
+                        serializer.save()
+                    return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+
+                else:
+                    serializer.save()
+                    return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+
             else:
                 return Response({"error": "cannot change users CPF"}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        

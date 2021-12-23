@@ -25,7 +25,7 @@ class Referral(models.Model):
                             blank=False, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.BooleanField(default=False)
+    status = models.BooleanField(default=False, blank=True)
 
     def __str__(self):
         details = f'Indicador: {self.source_cpf} | Indicado: {self.target_cpf}'
