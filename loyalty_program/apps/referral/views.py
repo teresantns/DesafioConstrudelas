@@ -7,9 +7,9 @@ Postman documentation, linked in the repository README.md file.
 """
 
 from django.shortcuts import get_object_or_404
+from django.db import transaction
 from rest_framework import status, generics
 from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from .models import Client, Referral
 from .serializers import ClientSerializer, ReferralSerializer
@@ -82,8 +82,11 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         user = Client.objects.get(cpf=cpf)
         serializer = ClientSerializer(user, data=request.data, partial=True)
         if serializer.is_valid():
-            serializer.save()
-            return Response({'Updated user:': serializer.data}, status=status.HTTP_200_OK)
+            if cpf == request.data['cpf']:
+                serializer.save()
+                return Response({'Updated user:': serializer.data}, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "cannot change user CPF"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -256,11 +259,11 @@ class CreateReferralView(generics.ListCreateAPIView):
                     if Client.objects.filter(cpf=request.data['target_cpf']).exists():
                         return Response(["error: Referred person is already registered"],
                                         status=status.HTTP_400_BAD_REQUEST)
-                        
+
                     else:
                         serializer.save()
                         return Response({"Referral registered": serializer.data}, status=status.HTTP_201_CREATED)
-                        
+
             else:
                 return Response(["error: User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
 
@@ -270,3 +273,58 @@ class CreateReferralView(generics.ListCreateAPIView):
 
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AcceptReferralView(generics.RetrieveUpdateAPIView):
+    """
+    Gets and updates referral, allowing its acceptance.
+    """
+
+    queryset = Referral.objects.all()
+    serializer_class = ReferralSerializer
+    lookup_field = 'target_cpf'
+
+    def get(self, request, cpf):
+        """
+        docstring here!
+        """
+
+        if Referral.objects.filter(target_cpf=cpf).exists():
+            referrals = Referral.objects.get(target_cpf=cpf)
+            serializer = ReferralSerializer(referrals)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({"error": "No active referral registered for this CPF"}, status=status.HTTP_404_NOT_FOUND)
+
+    def put(self, request, cpf):
+        """
+        docstring goes here
+        """
+        referral = Referral.objects.get(target_cpf=cpf)
+        serializer = ReferralSerializer(
+            referral, data=request.data, partial=True)
+        referrent = Client.objects.get(cpf=referral.source_cpf)
+        updated_status = request.data['status']
+
+        if serializer.is_valid():
+            if request.data['target_cpf'] == cpf and request.data['source_cpf'] == referral.source_cpf:
+                if updated_status:
+                    with transaction.atomic():
+                        """
+                        Using atomic to ensure both actions will happen, or neither of them.
+                        The number of points can be changed to be consistent with the existing point system
+                        """
+                        referrent.points += 10
+                        referrent.save()
+                        serializer.save()
+                    return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+
+                else:
+                    serializer.save()
+                    return Response({'Updated referral:': serializer.data}, status=status.HTTP_200_OK)
+
+            else:
+                return Response({"error": "cannot change users CPF"}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
