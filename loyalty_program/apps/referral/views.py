@@ -13,6 +13,7 @@ from rest_framework.response import Response
 
 from .models import Client, Referral
 from .serializers import ClientSerializer, ReferralSerializer
+from .utils import delete_referrals_older_than_30_days
 
 
 class UpdateUserView(generics.RetrieveUpdateAPIView):
