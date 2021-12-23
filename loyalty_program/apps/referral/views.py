@@ -13,6 +13,7 @@ from rest_framework.response import Response
 
 from .models import Client, Referral
 from .serializers import ClientSerializer, ReferralSerializer
+from .utils import delete_referrals_older_than_30_days
 
 
 class UpdateUserView(generics.RetrieveUpdateAPIView):
@@ -113,6 +114,8 @@ class GetReferralsView(generics.ListAPIView):
             ...
         ]
     """
+
+    delete_referrals_older_than_30_days()
     queryset = Referral.objects.all()
     serializer_class = ReferralSerializer
 
@@ -150,6 +153,7 @@ class GetUserReferralsView(generics.RetrieveAPIView):
         ]
         """
 
+        delete_referrals_older_than_30_days()
         is_client_on_db = Client.objects.filter(cpf=cpf).exists()
         if is_client_on_db:
             if Referral.objects.filter(source_cpf=cpf).exists():
@@ -192,6 +196,7 @@ class GetReferralView(generics.RetrieveAPIView):
             }
         """
 
+        delete_referrals_older_than_30_days()
         if Referral.objects.filter(target_cpf=cpf).exists():
             referrals = Referral.objects.filter(target_cpf=cpf)
             serializer = ReferralSerializer(referrals, many=True)
@@ -248,6 +253,7 @@ class CreateReferralView(generics.ListCreateAPIView):
             }
         """
 
+        delete_referrals_older_than_30_days()
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
@@ -289,6 +295,7 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
         docstring here!
         """
 
+        delete_referrals_older_than_30_days()
         if Referral.objects.filter(target_cpf=cpf).exists():
             referrals = Referral.objects.get(target_cpf=cpf)
             serializer = ReferralSerializer(referrals)
