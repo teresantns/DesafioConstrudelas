@@ -16,6 +16,26 @@ from .serializers import ClientSerializer, ReferralSerializer
 from .utils import delete_referrals_older_than_30_days
 
 
+class MainPage(generics.ListAPIView):
+    """
+    Description of API endpoints according to their function. 
+    """
+    """
+    This is only so that the local host endpoint gives information on 
+    the API endpoints, which are more detailed on the documentation.
+    """
+
+    def get(self, request):
+        urls = {'User detail and update': 'user/<str:cpf>/',
+                'List of all referrals registered': 'all-referrals/',
+                'List of all referrals performed by an user registered': 'all-referrals/<str:cpf>/',
+                'Information on specific referral': 'referral/<str:cpf>/',
+                'Create new referral': 'create-referral/',
+                'Accept specific referral': 'accept-referral/<str:cpf>/',
+                }
+        return Response(urls, status=status.HTTP_200_OK)
+
+
 class UpdateUserView(generics.RetrieveUpdateAPIView):
     """
     Gets and/or change the data of a specific user.
@@ -37,12 +57,12 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - HTTP status = 200;
         - A JSON like this:
             {
-                "cpf": "a valid cpf",
-                "name": "some name",
-                "phone": "some telephone number",
-                "email": "some valid email",
-                "created_at": "2021-12-20T20:10:34.538825-03:00",
-                "updated_at": "2021-12-21T12:01:53.208761-03:00",
+                "cpf": "11987098390",
+                "name": "Luisa Souza",
+                "phone": "31998877554",
+                "email": "luisa@gmail.com",
+                "created_at": "2021-12-22T18:31:48.327319-03:00",
+                "updated_at": "2021-12-22T18:39:51.509125-03:00",
                 "points": 0
             }
         """
@@ -59,23 +79,23 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - The CPF specified on the url;
         - A JSON like this:
             {
-                "cpf": "a valid cpf",
-                "name": "some name",
-                "phone": "some telephone number",
-                "email": "some valid email"
+                "cpf": "11987098390",
+                "name": "Luisa Souza",
+                "phone": "31998877554",
+                "email": "luisa_souza@gmail.com"
             }
 
         It returns:
         - HTTP status = 200;
         - A JSON like this:
             {
-                "Updated user:": {
-                    "cpf": "a valid cpf",
-                    "name": "some name",
-                    "phone": "some telephone number",
-                    "email": "some valid email",
-                    "created_at": "2021-12-20T20:10:34.538825-03:00",
-                    "updated_at": "2021-12-21T13:57:52.904942-03:00",
+                  "Updated user:": {
+                    "cpf": "11987098390",
+                    "name": "Luisa Souza",
+                    "phone": "31998877554",
+                    "email": "luisa_souza@gmail.com",
+                    "created_at": "2021-12-22T18:31:48.327319-03:00",
+                    "updated_at": "2021-12-24T15:42:27.480610-03:00",
                     "points": 0
                 }
             }
@@ -104,12 +124,12 @@ class GetReferralsView(generics.ListAPIView):
     - A JSON like this:
         [
             {
-            "id": 1,
-            "source_cpf": "a valid cpf",
-            "target_cpf": "another valid cpf",
-            "created_at": "2021-12-21T15:22:23.097487-03:00",
-            "updated_at": "2021-12-21T15:22:23.097652-03:00",
-            "status": false
+                "id": 1,
+                "source_cpf": "12631049675",
+                "target_cpf": "51805510649",
+                "created_at": "2021-12-21T15:22:23.097487-03:00",
+                "updated_at": "2021-12-23T15:04:34.881831-03:00",
+                "status": true
             },
             ...
         ]
@@ -142,11 +162,11 @@ class GetUserReferralsView(generics.RetrieveAPIView):
         - A JSON like this:
             [
             {
-                "id": 1,
-                "source_cpf": "cpf on url",
-                "target_cpf": "another valid cpf",
-                "created_at": "2021-12-21T15:22:23.097487-03:00",
-                "updated_at": "2021-12-21T15:22:23.097652-03:00",
+                "id": 3,
+                "source_cpf": "52768135070",
+                "target_cpf": "58874265786",
+                "created_at": "2021-12-21T18:50:30.355478-03:00",
+                "updated_at": "2021-12-21T18:50:30.355534-03:00",
                 "status": false
             },
             ...
@@ -188,11 +208,11 @@ class GetReferralView(generics.RetrieveAPIView):
         - A JSON like this:
             {
                 "id": 1,
-                "source_cpf": "a valid cpf",
-                "target_cpf": "cpf on url",
+                "source_cpf": "12631049675",
+                "target_cpf": "51805510649",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
-                "updated_at": "2021-12-21T15:22:23.097652-03:00",
-                "status": false
+                "updated_at": "2021-12-23T15:04:34.881831-03:00",
+                "status": true
             }
         """
 
@@ -235,8 +255,8 @@ class CreateReferralView(generics.ListCreateAPIView):
         - POST as http method;
         - A JSON like this:
         {
-            "source_cpf": "a valid cpf",
-            "target_cpf": "another valid cpf",
+            "source_cpf": "12631049675",
+            "target_cpf": "12262411239",
             "status": false
         }
 
@@ -244,12 +264,14 @@ class CreateReferralView(generics.ListCreateAPIView):
         - HTTP status = 201;
         - A JSON like this:
             {
-                "id": 1,
-                "source_cpf": "a valid cpf",
-                "target_cpf": "another valid cpf",
-                "created_at": "2021-12-21T15:22:23.097487-03:00",
-                "updated_at": "2021-12-21T15:22:23.097652-03:00",
-                "status": false
+                "Referral registered": {
+                    "id": 8,
+                    "source_cpf": "12631049675",
+                    "target_cpf": "12262411239",
+                    "created_at": "2021-12-24T19:46:17.978403-03:00",
+                    "updated_at": "2021-12-24T19:46:17.978446-03:00",
+                    "status": false
+                }
             }
         """
 
@@ -273,7 +295,7 @@ class CreateReferralView(generics.ListCreateAPIView):
             else:
                 return Response(["error: User must be registered to make a referral"], status=status.HTTP_404_NOT_FOUND)
 
-        elif Referral.objects.filter(target_cpf=request.data['target_cpf']).exists() and serializer.is_valid():
+        elif Referral.objects.filter(target_cpf=request.data['target_cpf']).exists():
             return Response("error: This person was already referred.",
                             status=status.HTTP_400_BAD_REQUEST)
 
@@ -292,7 +314,24 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
 
     def get(self, request, cpf):
         """
-        docstring here!
+        Gets a specific referral, allowing its acceptance. The referred 
+        person's CPF is passed on the URL path.
+
+        It expects:
+        - GET as http method;
+        - The CPF specified on the url;
+
+        It returns:
+        - HTTP status = 200;
+        - A JSON like this:
+            {
+                "id": 5,
+                "source_cpf": "12631049675",
+                "target_cpf": "10370335317",
+                "created_at": "2021-12-21T23:36:47.608175-03:00",
+                "updated_at": "2021-12-22T23:17:14.602338-03:00",
+                "status": false
+            }
         """
 
         delete_referrals_older_than_30_days()
@@ -305,8 +344,35 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
 
     def put(self, request, cpf):
         """
-        docstring goes here
+        Updates the specified referral.
+
+        It expects:
+        - PUT as http method;
+        - The CPF of reffered person specified on the url;
+        - A JSON like this:
+            {
+                "id": 5,
+                "source_cpf": "12631049675",
+                "target_cpf": "10370335317",
+                "status": true
+            }
+
+        It returns:
+        - HTTP status = 200;
+        - A JSON like this:
+            {
+                "Updated referral:": {
+                    "id": 5,
+                    "source_cpf": "12631049675",
+                    "target_cpf": "10370335317",
+                    "created_at": "2021-12-21T23:36:47.608175-03:00",
+                    "updated_at": "2021-12-24T20:14:46.355914-03:00",
+                    "status": true
+                }
+            }
+
         """
+
         referral = Referral.objects.get(target_cpf=cpf)
         serializer = ReferralSerializer(
             referral, data=request.data, partial=True)
@@ -334,4 +400,3 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
                 return Response({"error": "cannot change users CPF"}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
