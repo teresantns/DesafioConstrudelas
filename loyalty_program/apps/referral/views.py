@@ -16,6 +16,26 @@ from .serializers import ClientSerializer, ReferralSerializer
 from .utils import delete_referrals_older_than_30_days
 
 
+class MainPage(generics.ListAPIView):
+    """
+    Description of API endpoints according to their function. 
+    """
+    """
+    This is only so that the local host endpoint gives information on 
+    the API endpoints, which are more detailed on the documentation.
+    """
+
+    def get(self, request):
+        urls = {'User detail and update': 'user/<str:cpf>/',
+                'List of all referrals registered': 'all-referrals/',
+                'List of all referrals performed by an user registered': 'all-referrals/<str:cpf>/',
+                'Information on specific referral': 'referral/<str:cpf>/',
+                'Create new referral': 'create-referral/',
+                'Accept specific referral': 'accept-referral/<str:cpf>/',
+                }
+        return Response(urls, status=status.HTTP_200_OK)
+
+
 class UpdateUserView(generics.RetrieveUpdateAPIView):
     """
     Gets and/or change the data of a specific user.
@@ -350,7 +370,7 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
                     "status": true
                 }
             }
-            
+
         """
 
         referral = Referral.objects.get(target_cpf=cpf)
