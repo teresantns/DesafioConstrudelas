@@ -37,12 +37,12 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - HTTP status = 200;
         - A JSON like this:
             {
-                "cpf": "a valid cpf",
-                "name": "some name",
-                "phone": "some telephone number",
-                "email": "some valid email",
-                "created_at": "2021-12-20T20:10:34.538825-03:00",
-                "updated_at": "2021-12-21T12:01:53.208761-03:00",
+                "cpf": "11987098390",
+                "name": "Luisa Souza",
+                "phone": "31998877554",
+                "email": "luisa@gmail.com",
+                "created_at": "2021-12-22T18:31:48.327319-03:00",
+                "updated_at": "2021-12-22T18:39:51.509125-03:00",
                 "points": 0
             }
         """
@@ -59,23 +59,23 @@ class UpdateUserView(generics.RetrieveUpdateAPIView):
         - The CPF specified on the url;
         - A JSON like this:
             {
-                "cpf": "a valid cpf",
-                "name": "some name",
-                "phone": "some telephone number",
-                "email": "some valid email"
+                "cpf": "11987098390",
+                "name": "Luisa Souza",
+                "phone": "31998877554",
+                "email": "luisa_souza@gmail.com"
             }
 
         It returns:
         - HTTP status = 200;
         - A JSON like this:
             {
-                "Updated user:": {
-                    "cpf": "a valid cpf",
-                    "name": "some name",
-                    "phone": "some telephone number",
-                    "email": "some valid email",
-                    "created_at": "2021-12-20T20:10:34.538825-03:00",
-                    "updated_at": "2021-12-21T13:57:52.904942-03:00",
+                  "Updated user:": {
+                    "cpf": "11987098390",
+                    "name": "Luisa Souza",
+                    "phone": "31998877554",
+                    "email": "luisa_souza@gmail.com",
+                    "created_at": "2021-12-22T18:31:48.327319-03:00",
+                    "updated_at": "2021-12-24T15:42:27.480610-03:00",
                     "points": 0
                 }
             }
@@ -334,4 +334,3 @@ class AcceptReferralView(generics.RetrieveUpdateAPIView):
                 return Response({"error": "cannot change users CPF"}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
