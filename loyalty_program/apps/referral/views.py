@@ -188,11 +188,11 @@ class GetReferralView(generics.RetrieveAPIView):
         - A JSON like this:
             {
                 "id": 1,
-                "source_cpf": "a valid cpf",
-                "target_cpf": "cpf on url",
+                "source_cpf": "12631049675",
+                "target_cpf": "51805510649",
                 "created_at": "2021-12-21T15:22:23.097487-03:00",
-                "updated_at": "2021-12-21T15:22:23.097652-03:00",
-                "status": false
+                "updated_at": "2021-12-23T15:04:34.881831-03:00",
+                "status": true
             }
         """
 
