@@ -104,12 +104,12 @@ class GetReferralsView(generics.ListAPIView):
     - A JSON like this:
         [
             {
-            "id": 1,
-            "source_cpf": "a valid cpf",
-            "target_cpf": "another valid cpf",
-            "created_at": "2021-12-21T15:22:23.097487-03:00",
-            "updated_at": "2021-12-21T15:22:23.097652-03:00",
-            "status": false
+                "id": 1,
+                "source_cpf": "12631049675",
+                "target_cpf": "51805510649",
+                "created_at": "2021-12-21T15:22:23.097487-03:00",
+                "updated_at": "2021-12-23T15:04:34.881831-03:00",
+                "status": true
             },
             ...
         ]
@@ -142,11 +142,11 @@ class GetUserReferralsView(generics.RetrieveAPIView):
         - A JSON like this:
             [
             {
-                "id": 1,
-                "source_cpf": "cpf on url",
-                "target_cpf": "another valid cpf",
-                "created_at": "2021-12-21T15:22:23.097487-03:00",
-                "updated_at": "2021-12-21T15:22:23.097652-03:00",
+                "id": 3,
+                "source_cpf": "52768135070",
+                "target_cpf": "58874265786",
+                "created_at": "2021-12-21T18:50:30.355478-03:00",
+                "updated_at": "2021-12-21T18:50:30.355534-03:00",
                 "status": false
             },
             ...
