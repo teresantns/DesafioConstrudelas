@@ -1,5 +1,4 @@
 from django.test import TestCase
-from rest_framework.exceptions import ValidationError
 
 from ..models import Client, Referral
 from ..serializers import ClientSerializer, ReferralSerializer
