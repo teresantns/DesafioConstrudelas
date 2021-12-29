@@ -15,7 +15,7 @@ class TestCreateReferralView(TestCase):
 
     def setUp(self):
         """
-        Initializing the RequestsClient for all tests.
+        Initializing the RequestsClient and creatig an user for all tests.
         """
 
         self.client = RequestsClient()

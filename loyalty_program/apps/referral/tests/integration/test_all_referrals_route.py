@@ -17,7 +17,8 @@ class TestAllReferralsView(TestCase):
 
     def setUp(self):
         """
-        Initializing the RequestsClient for all tests.
+        Initializing the RequestsClient, creating an user and two
+        referrals for all tests.
         """
 
         self.client = RequestsClient()
