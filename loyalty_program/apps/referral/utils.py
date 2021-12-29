@@ -10,5 +10,5 @@ def delete_referrals_older_than_30_days():
     referrals = Referral.objects.filter(status=False)
     for referral in referrals:
         tempo = timezone.now() - referral.created_at
-        if tempo.days > 30:
+        if tempo.days >= 30:
             referral.delete()
