@@ -1,0 +1,9 @@
+{"levelname": "WARNING", "asctime": "2021-12-29 19:56:52,981", "name": "django.request", "message": "Bad Request: /user/12631049675/", "status_code": 400, "request": "<WSGIRequest: PUT '/user/12631049675/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 19:57:30,864", "name": "django.request", "message": "Bad Request: /user/12631049675/", "status_code": 400, "request": "<WSGIRequest: PUT '/user/12631049675/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 19:58:18,349", "name": "django.request", "message": "Not Found: /all-users/", "status_code": 404, "request": "<WSGIRequest: GET '/all-users/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 20:00:02,651", "name": "django.request", "message": "Not Found: /all-referrals/11111/", "status_code": 404, "request": "<WSGIRequest: GET '/all-referrals/11111/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 20:01:01,630", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 20:01:24,590", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 20:02:07,560", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 20:02:22,524", "name": "django.request", "message": "Not Found: /accept-referral/", "status_code": 404, "request": "<WSGIRequest: GET '/accept-referral/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 20:03:17,378", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
