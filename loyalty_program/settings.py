@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from pythonjsonlogger.jsonlogger import JsonFormatter
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -128,3 +129,53 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Adding logging to project
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+            "()": JsonFormatter,
+            "format": "%(levelname)-8s [%(asctime)s] %(name)s: %(message)s",
+        },
+        'simple': {
+            'format': '{levelname} {asctime} {name} {message}',
+            'style': '{',
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+         "request_file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": "loyalty_program/log_files/requests_logs.log",
+            "formatter": "standard",
+        },
+          "info_file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": "loyalty_program/log_files/info_logs.log",
+            "formatter": "standard",
+        }
+    },
+    "loggers": {
+        "": {"level": "DEBUG", "handlers": ["info_file"]},
+        "app": {"level": "INFO", "handlers": ["console"], "propagate": False},
+        "django": {"level": "INFO", "propagate": False, "handlers": ["console"]},
+        "django.request": {
+            "level": "INFO",
+            "handlers": ["request_file"],
+            "propagate": False,
+        },
+        "django.db.backends": {
+            "level": "INFO",
+            "propagate": False,
+            "handlers": ["console"],
+        },
+    },
+}
