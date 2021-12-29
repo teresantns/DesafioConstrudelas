@@ -1,1 +1,0 @@
-{"levelname": "WARNING", "asctime": "2021-12-29 19:08:04,590", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}

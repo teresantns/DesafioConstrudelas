@@ -153,13 +153,13 @@ LOGGING = {
          "request_file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": "loyalty_program/requests_logs.log",
+            "filename": "loyalty_program/log_files/requests_logs.log",
             "formatter": "standard",
         },
           "info_file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": "loyalty_program/info_logs.log",
+            "filename": "loyalty_program/log_files/info_logs.log",
             "formatter": "standard",
         }
     },

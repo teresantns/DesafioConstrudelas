@@ -1,0 +1,4 @@
+{"levelname": "INFO", "asctime": "2021-12-29 19:25:56,376", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-29 19:26:34,363", "name": "loyalty_program.apps.referral.views", "message": "Received request to get the main page."}
+{"levelname": "INFO", "asctime": "2021-12-29 19:26:54,637", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-29 19:27:16,005", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['12631049675'], 'name': ['Teresa Seabra Antunes'], 'phone': ['31992818779'], 'email': ['tseabra.antunes@gmail.com']}>"}
