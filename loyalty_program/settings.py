@@ -139,27 +139,37 @@ LOGGING = {
         "standard": {
             "()": JsonFormatter,
             "format": "%(levelname)-8s [%(asctime)s] %(name)s: %(message)s",
+        },
+        'simple': {
+            'format': '{levelname} {asctime} {name} {message}',
+            'style': '{',
         }
     },
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
-            "formatter": "standard",
+            "formatter": "simple",
         },
-         "file": {
+         "request_file": {
             "level": "INFO",
             "class": "logging.FileHandler",
             "filename": "loyalty_program/requests_logs.log",
             "formatter": "standard",
+        },
+          "info_file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": "loyalty_program/info_logs.log",
+            "formatter": "standard",
         }
     },
     "loggers": {
-        "": {"level": "DEBUG", "handlers": ["console"]},
+        "": {"level": "DEBUG", "handlers": ["info_file"]},
         "app": {"level": "INFO", "handlers": ["console"], "propagate": False},
         "django": {"level": "INFO", "propagate": False, "handlers": ["console"]},
         "django.request": {
             "level": "INFO",
-            "handlers": ["file"],
+            "handlers": ["request_file"],
             "propagate": False,
         },
         "django.db.backends": {

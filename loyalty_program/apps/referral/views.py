@@ -15,6 +15,9 @@ from .models import Client, Referral
 from .serializers import ClientSerializer, ReferralSerializer
 from .utils import delete_referrals_older_than_30_days
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class MainPage(generics.ListAPIView):
     """
@@ -33,6 +36,7 @@ class MainPage(generics.ListAPIView):
                 'Create new referral': 'create-referral/',
                 'Accept specific referral': 'accept-referral/<str:cpf>/',
                 }
+        logger.info("getting main page")
         return Response(urls, status=status.HTTP_200_OK)
 
 

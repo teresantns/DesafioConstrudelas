@@ -1,2 +1,1 @@
-{"levelname": "WARNING", "asctime": "2021-12-29 17:18:01,380", "name": "django.request", "message": "Not Found: /favicon.ico", "status_code": 404, "request": "<WSGIRequest: GET '/favicon.ico'>"}
-{"levelname": "WARNING", "asctime": "2021-12-29 17:22:38,902", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
+{"levelname": "WARNING", "asctime": "2021-12-29 19:08:04,590", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
