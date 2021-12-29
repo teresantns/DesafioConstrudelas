@@ -5,7 +5,7 @@ from unittest.mock import ANY
 from django.test import TestCase
 from rest_framework.test import RequestsClient
 
-from ...models import Client, Referral
+from ...models import Client
 from ..utils import create_user, generate_valid_cpf, create_referral
 
 
