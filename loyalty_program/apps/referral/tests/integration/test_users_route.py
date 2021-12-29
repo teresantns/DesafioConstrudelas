@@ -1,14 +1,9 @@
-"""
-In this file we will create tests to verify that our API endpoints
-are wrorking properly and returning consistent errors.
-"""
 from freezegun import freeze_time
 from datetime import datetime
 
 from django.test import TestCase
 from rest_framework.test import RequestsClient
 
-from ...models import Client, Referral
 from ..utils import generate_valid_cpf, create_user
 
 
@@ -63,9 +58,9 @@ class TestUpdateUserView(TestCase):
         by their cpf on the url path.
         """
 
-        URI = 'http://127.0.0.1:8000/user/11987098390/'
+        URL = 'http://127.0.0.1:8000/user/11987098390/'
 
-        response = self.client.get(URI)
+        response = self.client.get(URL)
         json_response = response.json()
 
         expected_json_response = {
@@ -85,9 +80,9 @@ class TestUpdateUserView(TestCase):
         """
 
         unregistered_cpf = generate_valid_cpf()
-        URI = f'http://127.0.0.1:8000/user/{unregistered_cpf}/'
+        URL = f'http://127.0.0.1:8000/user/{unregistered_cpf}/'
 
-        response = self.client.get(URI)
+        response = self.client.get(URL)
         json_response = response.json()
 
         expected_json_response = {"detail": "Not found."}
@@ -101,7 +96,7 @@ class TestUpdateUserView(TestCase):
         information for a valid input on request.
         """
 
-        URI = 'http://127.0.0.1:8000/user/11987098390/'
+        URL = 'http://127.0.0.1:8000/user/11987098390/'
         update_time = datetime.now().astimezone().isoformat()
         body = {
             "cpf": "11987098390", "name": "Luisa Souza",
@@ -109,7 +104,7 @@ class TestUpdateUserView(TestCase):
         }
 
         with freeze_time(update_time):
-            response = self.client.put(URI, data=body)
+            response = self.client.put(URL, data=body)
             json_response = response.json()
 
         expected_json_response = {
@@ -133,13 +128,13 @@ class TestUpdateUserView(TestCase):
         if user is trying to update their CPF number.
         """
 
-        URI = 'http://127.0.0.1:8000/user/11987098390/'
+        URL = 'http://127.0.0.1:8000/user/11987098390/'
         body = {
             "cpf": "51805510649", "name": "Luisa Souza",
             "phone": "31998877554", "email": "luisa@gmail.com"
         }
 
-        response = self.client.put(URI, data=body)
+        response = self.client.put(URL, data=body)
         json_response = response.json()
 
         expected_json_response = {"error": "cannot change user CPF"}
@@ -147,20 +142,19 @@ class TestUpdateUserView(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json_response, expected_json_response)
 
-
     def test_should_return_400_if_invalid_cpf(self):
         """
         Testing if the PUT method on endpoint returns a bad response
         if user is trying to update their CPF number with an invalid CPF.
         """
 
-        URI = 'http://127.0.0.1:8000/user/11987098390/'
+        URL = 'http://127.0.0.1:8000/user/11987098390/'
         body = {
             "cpf": "1198709839", "name": "Luisa Souza",
             "phone": "31998877554", "email": "luisa@gmail.com"
         }
 
-        response = self.client.put(URI, data=body)
+        response = self.client.put(URL, data=body)
         json_response = response.json()
 
         expected_json_response = {"cpf": ["Invalid CPF number."]}
@@ -168,20 +162,19 @@ class TestUpdateUserView(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json_response, expected_json_response)
 
-
     def test_should_return_400_if_invalid_email(self):
         """
         Testing if the PUT method on endpoint returns a bad response
         if user is trying to update their CPF number with an invalid CPF.
         """
 
-        URI = 'http://127.0.0.1:8000/user/11987098390/'
+        URL = 'http://127.0.0.1:8000/user/11987098390/'
         body = {
             "cpf": "11987098390", "name": "Luisa Souza",
             "phone": "31998877554", "email": "luisa"
         }
 
-        response = self.client.put(URI, data=body)
+        response = self.client.put(URL, data=body)
         json_response = response.json()
 
         expected_json_response = {'email': ['Enter a valid email address.']}

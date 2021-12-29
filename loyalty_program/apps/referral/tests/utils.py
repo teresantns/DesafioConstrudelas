@@ -1,8 +1,9 @@
 """
 Utilities being used in our tests. We have a function to generate random
-valid CPF numbers, and a function that creates a valid client in the database
+valid CPF numbers, a function that creates a valid client in the database,
+and a function to create referrals.
 """
-from ..models import Client
+from ..models import Client, Referral
 
 
 def generate_valid_cpf():
@@ -33,9 +34,24 @@ def generate_valid_cpf():
 
 
 def create_user():
+    """
+    Creates a standard client we will use for our tests. Note that
+    we know that this is a valid client, with a valid serializer.
+    """
     return Client.objects.create(
         cpf="11987098390",
         name="Luisa Souza",
         phone="31998877554",
         email="luisa@gmail.com"
+    )
+
+def create_referral():
+    """
+    Creates a referral from our stardard client to a random valid CPF.
+    """
+
+    return Referral.objects.create(
+        source_cpf="11987098390",
+        target_cpf=generate_valid_cpf(),
+        status=False
     )
