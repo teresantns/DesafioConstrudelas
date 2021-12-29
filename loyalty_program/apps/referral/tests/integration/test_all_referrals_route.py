@@ -70,7 +70,7 @@ class TestAllReferralsView(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(json_response), 2)
         self.assertEqual(json_response, expected_json_response)
-    
+
     def test_should_return_404_for_unregistered_user_referrals(self):
         """
         Testing if GET method on 'all-referrals/<str:cpf>/' endpoint
@@ -106,9 +106,8 @@ class TestAllReferralsView(TestCase):
         response = self.client.get(URL)
         json_response = response.json()
 
-        expected_json_response = ["error: User doesn't have registered referrals"]
+        expected_json_response = [
+            "error: User doesn't have registered referrals"]
 
         self.assertEqual(response.status_code, 404)
         self.assertEqual(json_response, expected_json_response)
-
-

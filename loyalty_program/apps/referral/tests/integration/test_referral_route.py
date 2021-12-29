@@ -61,8 +61,8 @@ class TestReferralView(TestCase):
         response = self.client.get(URL)
         json_response = response.json()
 
-        expected_json_response = ['error: No active referral towards this person.']
+        expected_json_response = [
+            'error: No active referral towards this person.']
 
         self.assertEqual(response.status_code, 404)
         self.assertEqual(json_response, expected_json_response)
-
