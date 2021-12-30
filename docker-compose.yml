@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  app:
+    container_name:  app_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    image: app:banco
+    command: python manage.py runserver 0.0.0.0:8000
+
+  tests:
+    container_name: tests_container
+    build: .
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:  python manage.py test loyalty_program.apps.referral.tests

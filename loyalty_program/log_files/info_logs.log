@@ -42,3 +42,148 @@
 {"levelname": "WARNING", "asctime": "2021-12-29 20:03:17,348", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone with an active referral, returning 400."}
 {"levelname": "INFO", "asctime": "2021-12-29 20:03:57,674", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
 {"levelname": "INFO", "asctime": "2021-12-29 20:04:11,786", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,509", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,509", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,612", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,612", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,614", "name": "loyalty_program.apps.referral.views", "message": "No referrals with this CPF, returning 404"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,627", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['69406988925'], 'status': ['True']}>"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,627", "name": "loyalty_program.apps.referral.views", "message": "User accepted the referral! Giving points to referrer and returning 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,685", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,685", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,687", "name": "loyalty_program.apps.referral.views", "message": "Data checks, returning referral and 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,707", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['37599424237'], 'status': ['True']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,711", "name": "loyalty_program.apps.referral.views", "message": "User is trying to change CPFs, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,732", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['11111111111'], 'status': ['True']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,736", "name": "loyalty_program.apps.referral.views", "message": "Requested data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,756", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,756", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,758", "name": "loyalty_program.apps.referral.views", "message": "No referrals with this CPF, returning 404"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,800", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals made by user: 11987098390"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,800", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,802", "name": "loyalty_program.apps.referral.views", "message": "Data checks, returning referrals and 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,818", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals made by user: 26017109774"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,818", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,819", "name": "loyalty_program.apps.referral.views", "message": "User is not registered, returning 404."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,833", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals made by user: 51805510649"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,833", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,835", "name": "loyalty_program.apps.referral.views", "message": "User doesn't have referrals, returning 404."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,849", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['50671690108'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,849", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,852", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone with an active referral, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,866", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['11111111111'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,866", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,868", "name": "loyalty_program.apps.referral.views", "message": "Requested data is invalid, returnin 400"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,880", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['41894614747'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,880", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,880", "name": "loyalty_program.apps.referral.views", "message": "Data checks, creating referral and returning 201!"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,908", "name": "loyalty_program.apps.referral.views", "message": "Waiting for user to create a referral."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,921", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['51805510649'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,921", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,925", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone who is already on database, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,938", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['11987098390'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,938", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,941", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer themselves, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,955", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['77931056213'], 'target_cpf': ['35423148707'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,955", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,958", "name": "loyalty_program.apps.referral.views", "message": "Non-registered user is trying to refer someone, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,971", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,972", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,973", "name": "loyalty_program.apps.referral.views", "message": "Data checks, returning referral and 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,978", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,978", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:14,979", "name": "loyalty_program.apps.referral.views", "message": "This person doesn't have active referrals, returning 404."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,983", "name": "loyalty_program.apps.referral.views", "message": "Received request to get the main page."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:14,996", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,011", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['51805510649'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa@gmail.com']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:15,016", "name": "loyalty_program.apps.referral.views", "message": "User is trying to change their CPF, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,030", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['1198709839'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa@gmail.com']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:15,032", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,051", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['11987098390'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 17:10:15,054", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,072", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,089", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['11987098390'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa_souza@gmail.com']}>"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,089", "name": "loyalty_program.apps.referral.views", "message": "Requested data is valid, updating the user and returning 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,182", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:15,182", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:50,443", "name": "loyalty_program.apps.referral.views", "message": "Received request to get the main page."}
+{"levelname": "INFO", "asctime": "2021-12-30 17:10:55,252", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:11:00,130", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['12631049675'], 'name': ['Teresa Seabra '], 'phone': ['31992818779'], 'email': ['tseabra.antunes@gmail.com']}>"}
+{"levelname": "INFO", "asctime": "2021-12-30 17:11:00,469", "name": "loyalty_program.apps.referral.views", "message": "Requested data is valid, updating the user and returning 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:47,922", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:47,922", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,402", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,403", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,505", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,505", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,507", "name": "loyalty_program.apps.referral.views", "message": "No referrals with this CPF, returning 404"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,519", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['39280822721'], 'status': ['True']}>"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,519", "name": "loyalty_program.apps.referral.views", "message": "User accepted the referral! Giving points to referrer and returning 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,571", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,571", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,573", "name": "loyalty_program.apps.referral.views", "message": "Data checks, returning referral and 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,586", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['97107883291'], 'status': ['True']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,589", "name": "loyalty_program.apps.referral.views", "message": "User is trying to change CPFs, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,603", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['11111111111'], 'status': ['True']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,606", "name": "loyalty_program.apps.referral.views", "message": "Requested data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,619", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,620", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,621", "name": "loyalty_program.apps.referral.views", "message": "No referrals with this CPF, returning 404"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,649", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals made by user: 11987098390"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,650", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,651", "name": "loyalty_program.apps.referral.views", "message": "Data checks, returning referrals and 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,666", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals made by user: 41976658659"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,666", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,669", "name": "loyalty_program.apps.referral.views", "message": "User is not registered, returning 404."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,684", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals made by user: 51805510649"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,685", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,686", "name": "loyalty_program.apps.referral.views", "message": "User doesn't have referrals, returning 404."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,700", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['97924084878'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,700", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,702", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone with an active referral, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,715", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['11111111111'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,715", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,718", "name": "loyalty_program.apps.referral.views", "message": "Requested data is invalid, returnin 400"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,731", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['85487931984'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,731", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,731", "name": "loyalty_program.apps.referral.views", "message": "Data checks, creating referral and returning 201!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,758", "name": "loyalty_program.apps.referral.views", "message": "Waiting for user to create a referral."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,770", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['51805510649'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,771", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,773", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone who is already on database, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,786", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['11987098390'], 'target_cpf': ['11987098390'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,786", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,788", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer themselves, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,802", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'source_cpf': ['74910022503'], 'target_cpf': ['60245556109'], 'status': ['False']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,802", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,805", "name": "loyalty_program.apps.referral.views", "message": "Non-registered user is trying to refer someone, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,818", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,818", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,820", "name": "loyalty_program.apps.referral.views", "message": "Data checks, returning referral and 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,824", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific Referral"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,824", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,825", "name": "loyalty_program.apps.referral.views", "message": "This person doesn't have active referrals, returning 404."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,828", "name": "loyalty_program.apps.referral.views", "message": "Received request to get the main page."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,841", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,855", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['51805510649'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa@gmail.com']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,860", "name": "loyalty_program.apps.referral.views", "message": "User is trying to change their CPF, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,873", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['1198709839'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa@gmail.com']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,875", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,888", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['11987098390'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,890", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,903", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,914", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['11987098390'], 'name': ['Luisa Souza'], 'phone': ['31998877554'], 'email': ['luisa_souza@gmail.com']}>"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:48,914", "name": "loyalty_program.apps.referral.views", "message": "Requested data is valid, updating the user and returning 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:31:55,898", "name": "loyalty_program.apps.referral.views", "message": "Received request to get the main page."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:32:45,257", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:33:14,472", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['Rua Dona Queridinha, 343, Apt 401, Bairro Itapo\u00e3'], 'name': ['Teresa Seabra Antunes'], 'phone': ['3125310553'], 'email': ['tseabra.antunes@gmail.com']}>"}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:33:14,485", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:33:26,480", "name": "loyalty_program.apps.referral.views", "message": "Received a request to update a specific User, with the following data: <QueryDict: {'cpf': ['12631049675'], 'name': ['Teresa Seabra Antunes'], 'phone': ['3125310553'], 'email': ['tseabra.antunes@gmail.com']}>"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:33:26,688", "name": "loyalty_program.apps.referral.views", "message": "Requested data is valid, updating the user and returning 200!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:33:43,158", "name": "loyalty_program.apps.referral.views", "message": "Waiting for user to create a referral."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:34:20,767", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: <QueryDict: {'csrfmiddlewaretoken': ['Llmq3s7lSSIm5WdKExxDqbNZu7PpAxUDDZ3Ep4uRHMB6liUhrcp3pGmtLVwRPCt2'], 'source_cpf': ['12631049675'], 'target_cpf': ['00127504680']}>:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:34:20,768", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2021-12-30 20:34:20,952", "name": "loyalty_program.apps.referral.views", "message": "Data checks, creating referral and returning 201!"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:34:53,217", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: {'source_cpf': '12631049675', 'target_cpf': '00127504680', 'status': False}:"}
+{"levelname": "INFO", "asctime": "2021-12-30 20:34:53,220", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "WARNING", "asctime": "2021-12-30 20:34:53,242", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone with an active referral, returning 400."}
