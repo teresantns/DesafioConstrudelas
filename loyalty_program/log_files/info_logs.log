@@ -187,3 +187,31 @@
 {"levelname": "INFO", "asctime": "2021-12-30 20:34:53,217", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a referral with the following data: {'source_cpf': '12631049675', 'target_cpf': '00127504680', 'status': False}:"}
 {"levelname": "INFO", "asctime": "2021-12-30 20:34:53,220", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
 {"levelname": "WARNING", "asctime": "2021-12-30 20:34:53,242", "name": "loyalty_program.apps.referral.views", "message": "User is trying to refer someone with an active referral, returning 400."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:15:36,278", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:15:36,278", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:15:39,754", "name": "loyalty_program.apps.referral.views", "message": "Received request to get the main page."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:16:30,421", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:16:30,421", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:16:33,072", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a specific User"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:18:14,113", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:18:14,113", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:18:17,477", "name": "loyalty_program.apps.referral.views", "message": "Waiting for user to create new client."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:18:26,512", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:18:26,512", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:19:17,782", "name": "loyalty_program.apps.referral.views", "message": "Waiting for user to create new client."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:23:36,740", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a new client with the following data: {'cpf': '94353687433', 'name': 'Jos\u00e9 Coelho', 'phone': '11956555877', 'email': 'jose.coelho@gmail.com'}:"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:23:37,025", "name": "loyalty_program.apps.referral.views", "message": "Requested data is valid, created the user and returning 201!"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:24:05,439", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a new client with the following data: {'cpf': '11111111111', 'name': 'Jos\u00e9 Coelho', 'phone': '11956555877', 'email': 'jose.coelho@gmail.com'}:"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:24:05,442", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400 and the errors."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:24:43,509", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a new client with the following data: {'cpf': '12631049675', 'name': 'Jos\u00e9 Coelho', 'phone': '11956555877', 'email': 'jose.coelho@gmail.com'}:"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:24:43,511", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400 and the errors."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:25:24,397", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a new client with the following data: {'cpf': '22052587292', 'name': 'Jos\u00e9 Coelho', 'phone': '11956555877', 'email': 'jose.coelho'}:"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:25:24,400", "name": "loyalty_program.apps.referral.views", "message": "Received data is invalid, returning 400 and the errors."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:25:59,656", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a new client with the following data: {'cpf': '220.525.872-92', 'name': 'Jos\u00e9 Coelho', 'phone': '11956555877', 'email': 'jose.coelho@gmail.com'}:"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:25:59,846", "name": "loyalty_program.apps.referral.views", "message": "Requested data is valid, created the user and returning 201!"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:28:06,421", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:28:06,421", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:28:12,237", "name": "loyalty_program.apps.referral.views", "message": "Received a request to create a new client with the following data: {'cpf': '220.525.872-92', 'name': 'Jos\u00e9 Coelho', 'phone': '11956555877', 'email': 'jose.coelho@gmail.com'}:"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:28:12,245", "name": "loyalty_program.apps.referral.views", "message": "CPF is not all numeric, returning 400."}
+{"levelname": "INFO", "asctime": "2022-01-02 18:31:05,499", "name": "loyalty_program.apps.referral.views", "message": "Received a request to fetch a list of all Referrals"}
+{"levelname": "INFO", "asctime": "2022-01-02 18:31:05,499", "name": "loyalty_program.apps.referral.utils", "message": "Checking for expired referrals to delete."}

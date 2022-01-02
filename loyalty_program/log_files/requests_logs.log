@@ -42,3 +42,10 @@
 {"levelname": "WARNING", "asctime": "2021-12-30 20:31:48,904", "name": "django.request", "message": "Not Found: /user/81622960262/", "status_code": 404, "request": "<WSGIRequest: GET '/user/81622960262/'>"}
 {"levelname": "WARNING", "asctime": "2021-12-30 20:33:14,531", "name": "django.request", "message": "Bad Request: /user/12631049675/", "status_code": 400, "request": "<WSGIRequest: PUT '/user/12631049675/'>"}
 {"levelname": "WARNING", "asctime": "2021-12-30 20:34:53,291", "name": "django.request", "message": "Bad Request: /create-referral/", "status_code": 400, "request": "<WSGIRequest: POST '/create-referral/'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:15:40,579", "name": "django.request", "message": "Not Found: /favicon.ico", "status_code": 404, "request": "<WSGIRequest: GET '/favicon.ico'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:16:36,905", "name": "django.request", "message": "Method Not Allowed: /user/", "status_code": 405, "request": "<WSGIRequest: GET '/user/'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:23:07,330", "name": "django.request", "message": "Unsupported Media Type: /user/", "status_code": 415, "request": "<WSGIRequest: POST '/user/'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:24:05,443", "name": "django.request", "message": "Bad Request: /user/", "status_code": 400, "request": "<WSGIRequest: POST '/user/'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:24:43,511", "name": "django.request", "message": "Bad Request: /user/", "status_code": 400, "request": "<WSGIRequest: POST '/user/'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:25:24,401", "name": "django.request", "message": "Bad Request: /user/", "status_code": 400, "request": "<WSGIRequest: POST '/user/'>"}
+{"levelname": "WARNING", "asctime": "2022-01-02 18:28:12,245", "name": "django.request", "message": "Bad Request: /user/", "status_code": 400, "request": "<WSGIRequest: POST '/user/'>"}
