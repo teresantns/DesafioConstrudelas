@@ -18,12 +18,13 @@ from django.urls import path
 
 from loyalty_program.apps.referral.views import (AcceptReferralView, 
     CreateReferralView, GetReferralView, GetUserReferralsView, 
-    UpdateUserView, GetReferralsView, MainPage)
+    UpdateUserView, GetReferralsView, MainPage, CreateUserView)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPage.as_view()),
+    path('user/', CreateUserView.as_view()),
     path('user/<str:cpf>/', UpdateUserView.as_view()),
     path('all-referrals/', GetReferralsView.as_view()),
     path('all-referrals/<str:cpf>/', GetUserReferralsView.as_view()),

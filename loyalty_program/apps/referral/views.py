@@ -40,6 +40,80 @@ class MainPage(generics.ListAPIView):
         return Response(urls, status=status.HTTP_200_OK)
 
 
+class CreateUserView(generics.ListCreateAPIView):
+    """
+    Creates a new client, with the requested data
+    """
+
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+
+    def get(self, request):
+        """
+        It expects:
+        - GET as http method;
+
+        It returns:
+        - HTTP status = 200;
+        - A message like this:
+            [
+                "waiting on client creation"
+            ]
+        """
+
+        logger.info("Waiting for user to create new client.")
+        return Response(["waiting on client creation"], status=status.HTTP_200_OK)
+
+    def post(self, request):
+        """
+        Creates a new user
+
+        It expects:
+            - POST as http method;
+            - A JSON like this:
+            {
+                "cpf": "94353687433",
+                "name": "José Coelho",
+                "phone": "11956555877",
+                "email": "jose.coelho@gmail.com"
+            }
+
+        It returns:
+             - HTTP status = 201;
+             - A JSON like this:
+               {
+                    "Created user:": {
+                        "cpf": "94353687433",
+                        "name": "José Coelho",
+                        "phone": "11956555877",
+                        "email": "jose.coelho@gmail.com",
+                        "created_at": "2022-01-02T18:23:36.749961-03:00",
+                        "updated_at": "2022-01-02T18:23:36.750023-03:00",
+                        "points": 0
+                    }
+                }
+        """
+
+        request_data = request.data
+        logger.info(
+            "Received a request to create a new client with the following data: %s:", request_data)
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            if request.data['cpf'].isalnum():
+                serializer.save()
+                logger.info(
+                    "Requested data is valid, created the user and returning 201!")
+                return Response({'Created user:': serializer.data}, status=status.HTTP_201_CREATED)
+
+            logger.info("CPF is not all numeric, returning 400.")
+            return Response({'Error': 'Please enter CPF just with numbers.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        logger.warning(
+            "Received data is invalid, returning 400 and the errors.")
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class UpdateUserView(generics.RetrieveUpdateAPIView):
     """
     Gets and/or change the data of a specific user.
