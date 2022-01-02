@@ -105,7 +105,7 @@ class CreateUserView(generics.ListCreateAPIView):
                 serializer.save()
                 logger.info(
                         "Requested data is valid, created the user and returning 201!")
-                return Response({'Created user:': serializer.data}, status=status.HTTP_200_OK)
+                return Response({'Created user:': serializer.data}, status=status.HTTP_201_CREATED)
             
             logger.info("CPF is not all numeric, returning 400.")
             return Response({'Error': 'Please enter CPF just with numbers.'}, status=status.HTTP_400_BAD_REQUEST)
