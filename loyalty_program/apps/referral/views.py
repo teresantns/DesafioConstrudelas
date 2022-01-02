@@ -52,7 +52,7 @@ class CreateUserView(generics.ListCreateAPIView):
         """
         It expects:
         - GET as http method;
-        
+
         It returns:
         - HTTP status = 200;
         - A message like this:
@@ -64,11 +64,10 @@ class CreateUserView(generics.ListCreateAPIView):
         logger.info("Waiting for user to create new client.")
         return Response(["waiting on client creation"], status=status.HTTP_200_OK)
 
-    
     def post(self, request):
         """
         Creates a new user
-        
+
         It expects:
             - POST as http method;
             - A JSON like this:
@@ -78,7 +77,7 @@ class CreateUserView(generics.ListCreateAPIView):
                 "phone": "11956555877",
                 "email": "jose.coelho@gmail.com"
             }
-        
+
         It returns:
              - HTTP status = 201;
              - A JSON like this:
@@ -104,15 +103,16 @@ class CreateUserView(generics.ListCreateAPIView):
             if request.data['cpf'].isalnum():
                 serializer.save()
                 logger.info(
-                        "Requested data is valid, created the user and returning 201!")
+                    "Requested data is valid, created the user and returning 201!")
                 return Response({'Created user:': serializer.data}, status=status.HTTP_201_CREATED)
-            
+
             logger.info("CPF is not all numeric, returning 400.")
             return Response({'Error': 'Please enter CPF just with numbers.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        
-        logger.warning("Received data is invalid, returning 400 and the errors.")
+        logger.warning(
+            "Received data is invalid, returning 400 and the errors.")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UpdateUserView(generics.RetrieveUpdateAPIView):
     """
