@@ -29,6 +29,8 @@ The API was developed with [Django](https://www.djangoproject.com/) and [Django 
 </details>
 
 
+--- 
+
 # 🚀&nbsp; Running the project <a name="run"></a>
 This project uses [docker](https://www.docker.com/) and [docker-compose](https://docs.docker.com/compose/). First, clone the repository to create a local copy of the directories:
 
@@ -59,6 +61,9 @@ For a more detailed documentation of each route, with examples of requests and r
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+--- 
+
 # How the project was carried out <a name="carry"></a>
 
 ## 📆 Planning <a name="plan"></a>
@@ -83,6 +88,9 @@ For a more detailed documentation of each route, with examples of requests and r
 
 ## 📦 Docker <a name="docker"></a>
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+--- 
 
 # Some considerations <a name="considerations"></a>
 
